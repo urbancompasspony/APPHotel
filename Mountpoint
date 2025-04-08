@@ -1,0 +1,13 @@
+Instale o pacote cifs-utils no sistema.
+E crie a pasta /mnt/app
+
+Insira em /etc/fstab:
+
+//192.168.0.XX/app /mnt/app cifs credentials=/home/SEUUSUARIO/.smb,iocharset=utf8,file_mode=0777,dir_mode=0777,noperm,user,vers=2.1,nofail,x-systemd.automount,x-systemd.requires=network-online.target,x-systemd.device-timeout=3 0 0
+
+Edite de acordo com sua rede sendo XX o IP do seu servidor APPHotel
+Crie a pasta conf /home/SEUUSUARIO/.smb e insira conforme:
+
+username=usuario
+password=senha
+group=WORKGROUP
