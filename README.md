@@ -1,2 +1,2 @@
 # APPHotel
-Fator Sistemas porém em WINE com Linux!
+Aplicação da Fator Sistemas porém em WINE com Linux!
