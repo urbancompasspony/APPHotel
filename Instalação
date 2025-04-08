@@ -1,0 +1,44 @@
+# WINE
+Crie um wineprefix novo lançando o winecfg para definir como Windows 10 e caminho Z:/mnt/app para o client encontrar o servidor previamente mapeado no fstab.
+
+WINEPREFIX="/home/SEUUSUARIO/WINE/APPHotel/" winecfg
+
+# Reuna os instaladores:
+
+Setup Hotel 19.04.00-2023-02-24-001.exe
+Firebird-2.5.7.27050_0_x64.exe
+
+# WINE 2
+Utilize o WINE mais recente stable e instale as aplicações com o WINEPREFIX definido como alvo:
+
+WINEPREFIX="/home/SEUUSUARIO/WINE/APPHotel/" wine "/caminho/para/Plus/Instalações/Firebird-2.5.7.27050_0_x64.exe"
+WINEPREFIX="/home/SEUUSUARIO/WINE/APPHotel/" wine "/caminho/para/Atualiza/Setup Hotel 19.04.00-2023-02-24-001.exe"
+
+# Configuração do Firebird
+
+Binário SuperServer
+Executar como Serviço
+NÃO instalar Guardian
+NÃO copiar <system>
+NÃO gerar GDS32.dll
+Lançar Firebird Automatico
+Instalar Painel de Controle
+
+# Configuração do APPHotel
+Instalação NORMAL
+Desmarcar instalação do 7zip e do Firebird
+
+# Firebird
+Na pasta do Firebird dentro da garrafa do WINE pegue o fbclient.dll, renomeie para GDS32.dll e cole dentro de .../APP/Exe/Dll
+
+# WinHotelPlus.ini
+Utilize todos os .ini da pasta Plus/INI gerado em outro sistema Windows!
+
+Se for necessário ajustar do zero, configure conforme seria no Windows porém no APPHotel o caminho sera como o modelo:
+192.168.0.XX:C:\APP\Plus\Banco\APPDATABASE.FDB
+ou
+Z:\APP\Plus\Banco\APPDATABASE.FDB
+Apontando o IP do servidor normalmente.
+
+# A garrafa toda pode ser empacotada para facilitar a repliclação em outros clientes.
+Inclusive updates do APPHotel Client podem ser feitos diretamente como uma instalação convencional OU enxertando os novos arquivos diretamente em .../WINE/APPHotel/drive_c/APP/Plus/
